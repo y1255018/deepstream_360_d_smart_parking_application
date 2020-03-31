@@ -5,7 +5,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 import classes from './Header.css';
-import logo from '../../assets/NVLogo-H-White-Small.png';
+import logo from '../../assets/medusa.png';
 
 /**
  * Header.js contains
@@ -19,24 +19,24 @@ import logo from '../../assets/NVLogo-H-White-Small.png';
 const header = (props) => {
     let alertIcon;
 
-    if ( window.location.hash === "#/home" || props.isTimeValid ) {
-        alertIcon = (          
-                <Nav pullRight >
-                    <NavItem>
-                        {null}
-                    </NavItem>
-                </Nav>         
-            ); 
+    if (window.location.hash === "#/home" || props.isTimeValid) {
+        alertIcon = (
+            <Nav pullRight >
+                <NavItem>
+                    {null}
+                </NavItem>
+            </Nav>
+        );
     }
     else {
         alertIcon = (
-        <OverlayTrigger placement='left' overlay={<Tooltip id="tooltip" >Invalid time</Tooltip>} >
-            <Nav pullRight >
-                <NavItem>
-                    <FontAwesomeIcon icon={faExclamationTriangle} color="red" />
-                </NavItem>
-            </Nav>
-        </OverlayTrigger>            
+            <OverlayTrigger placement='left' overlay={<Tooltip id="tooltip" >Invalid time</Tooltip>} >
+                <Nav pullRight >
+                    <NavItem>
+                        <FontAwesomeIcon icon={faExclamationTriangle} color="red" />
+                    </NavItem>
+                </Nav>
+            </OverlayTrigger>
         );
     }
 
@@ -49,8 +49,8 @@ const header = (props) => {
                         <img alt="Nvidia" src={logo} />
                     </a>
                 </Navbar.Brand>
-                {/* center METROPOLIS text */}
-                <Navbar.Brand className={classes.center}>METROPOLIS</Navbar.Brand>
+                {/* center MEDUSA 360 text */}
+                <Navbar.Brand className={classes.center}>MEDUSA 360</Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>

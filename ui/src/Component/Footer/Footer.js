@@ -15,7 +15,7 @@ const footer = (props) => {
     return (
         <Navbar fluid fixedBottom className={classes.footer}>
             <div className={classes.footercontainer}>
-                <span>METROPOLIS</span> | <span>Ver: beta</span> | <span>User: {props.user}</span> | <span>This is a virtual garage for demo only.</span>
+                <span>MEDUSA 360</span> | <span>Ver: beta</span> | <span>User: {props.user}</span> | <span>This is a virtual garage for demo only.</span>
             </div>
         </Navbar>
     );

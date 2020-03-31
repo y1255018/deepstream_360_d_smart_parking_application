@@ -78,6 +78,8 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: ${IP_ADDRESS}
       HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://${PRIVATE_IP_ADDRESS}:9092
+      LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_CREATE_TOPICS: "metromind-start:8:1,metromind-raw:8:1,metromind-anomaly:8:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -152,7 +154,8 @@ services:
       IP_ADDRESS: ${IP_ADDRESS}
       NODE_PORT: 3000
     build:
-      context: node-apis/
+      context: ../
+      dockerfile: ./apis/Dockerfile
     ports:
       - "3000:3000"
     depends_on:
@@ -167,7 +170,8 @@ services:
   ui:
     container_name: ui
     build:
-      context: nginx-ui/
+      context: ../
+      dockerfile: ./ui/Dockerfile
       args:
         REACT_APP_BACKEND_IP_ADDRESS: ${IP_ADDRESS}
         REACT_APP_BACKEND_PORT: 3000
